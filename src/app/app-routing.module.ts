@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { StoryGenComponent } from './story-gen/story-gen.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'story_builder', component: StoryGenComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

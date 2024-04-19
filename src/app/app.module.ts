@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule } from "@angular/forms";
+import {MatDividerModule} from '@angular/material/divider'
+import {MatInputModule} from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,12 +20,18 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { LoadingSpinnerComponent } from './loading-spinner.component';
 import { LoadingGifComponent } from './loading-gif/loading-gif.component';
+import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { StoryGenComponent } from './story-gen/story-gen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoadingSpinnerComponent,
-    LoadingGifComponent
+    LoadingGifComponent,
+    HomeComponent,
+    NavBarComponent,
+    StoryGenComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +40,13 @@ import { LoadingGifComponent } from './loading-gif/loading-gif.component';
     BrowserAnimationsModule,
     FormsModule,
     MatTabsModule ,
+    MatDividerModule,
+    MatInputModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,    
-        MatCardModule,
+    MatCardModule,
+    MatSnackBar,
     ReactiveFormsModule,
     MatExpansionModule,
     MatSnackBarModule,MatSnackBarModule,
