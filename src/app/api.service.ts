@@ -43,6 +43,23 @@ export class ApiService {
             catchError(this.handleError<any>('submitFile', 'Error submitting the file'))
         );
       }
+
+      downloadCsv(userStories: any, fileName:String): Observable<Blob>{
+        const headers = new HttpHeaders({
+            'Content-Type' : 'application/json',
+            'Accept': 'text/csv'
+        });
+        return this.http.post<Blob>('http://localhost:5000/download_csv?filename='+fileName, userStories, {
+            headers: headers,
+            responseType: 'blob' as 'json' //Specify respnse type as blob to handle file download
+        }).pipe(
+            catchError(error => {
+                throw 'Error download CSV file: '+error;
+            })
+        );
+      }
+
+
     // Handle HTTP errors
     private handleError<T>(operation = 'operation', message = 'operation failed', result?: T): (error: any) => Observable<T> {
         return (error: any): Observable<T> => {
